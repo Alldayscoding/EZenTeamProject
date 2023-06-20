@@ -11,7 +11,9 @@
 <body>
 <h2>메인페이지 입니다.</h2>
 <c:out value="Hello World"/>
-
+<h3>안녕 ?</h3>
+<h3>애기왔다가</h3>
+<h3>업데이트됐나?</h3>
 
 </body>
 </html>
