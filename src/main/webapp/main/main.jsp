@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">ojd
+<meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
 <title>스킨푸드</title>
 </head>
