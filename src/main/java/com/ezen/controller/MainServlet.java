@@ -1,4 +1,4 @@
-package com.ezen.filter;
+package com.ezen.controller;
 
 import java.io.IOException;
 
@@ -9,13 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ezen.controller.PageController;
-
 /**
  * Servlet implementation class HelloServlet
  */
 @WebServlet("/main")
-public class HelloServlet extends HttpServlet {
+public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +32,6 @@ public class HelloServlet extends HttpServlet {
 		String endPoint = request.getRequestURI().replaceAll(request.getContextPath(),"" );
 		System.out.println("endPoint : " + endPoint);
 		
-		PageController pagecontroller = new PageController();
 		
 		
 		
