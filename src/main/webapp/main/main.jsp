@@ -12,6 +12,6 @@
 <h2>메인페이지 입니다.</h2>
 <c:out value="Hello World"/>
 
-
+<h2>김소휘 왔다갑니다.</h2>
 </body>
 </html>
