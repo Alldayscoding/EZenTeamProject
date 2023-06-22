@@ -1,40 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../header/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+</script>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="FAQ/css/style.css">
 <title>FAQ</title>
 </head>
+
+
 <body>
-<div id="wapper">
-		<!--헤더시작-->
-		<header>
-			<p>header</p>
-		</header>
+	<div>
+		<c:forEach var="subject" items="${subjects}">
+
+		</c:forEach>
+
+	</div>
+
+	<div id="wapper">
+
 		<div id="main-body">
 			<!--네비게이션-->
 			<nav>
-				<p>고객센터</p>
+				<h1>고객센터</h1>
+				<br />
 				<ul>
 					<li><a href="">FAQ</a></li>
+					<br />
 					<li><a href="">공지사항</a></li>
+					<br />
 					<li><a href="">매장안내</a></li>
+					<br />
 					<li><a href="">1:1문의하기</a></li>
 					<br>
-					<li>080-012-7878</li>
-					<li>AM 09:00 - PM 17:00
-						(점심시간 11:30 - 12:30)
-						DAY OFF (토/일/공휴일 휴무)</li>
-					<li>1:1문의하기</li>
+					<li><h1>080-012-7878</h1></li>
+					<br />
+					<li style="font-size: 14px">AM 09:00 - PM 17:00 <br>(점심시간
+						11:30 - 12:30) DAY OFF (토/일/공휴일 휴무)
+					</li>
+					<br />
+					<li><input class="support" type="button" value="1:1문의하기"></li>
 				</ul>
 			</nav>
 			<!--콘텐츠부분-->
 			<section>
-				<p>FAQ</p>
+			<!--<p>FAQ</p>-->
 				<article>
-					<p>article</p>
+						<c:forEach var="faq" items="${FAQList}">
+					<div>
+						 	<ul id="subject" style="font-size:18px;font-style:bold">
+								<li><strong>${faq.subject}</strong></li>
+								<li>${faq.content}</li><br/>
+							</ul>
+					</div>
+						</c:forEach>
 				</article>
 			</section>
 			<!---->

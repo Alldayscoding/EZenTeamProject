@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>review page입니다</h2>
 </body>
 </html>
