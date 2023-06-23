@@ -3,6 +3,7 @@ package com.ezen.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,15 +25,18 @@ public class ProductDAO {
 		return instance;
 	}
 	
+	// 데이터 크롤링해서 list에 받아서 return, list에 저장하면서 DB에도 저장
 	public List<ProductVO> productAllSelect() {	
 		
 		List<ProductVO> list = new ArrayList<ProductVO>();
 		
-		ProductDAO pDao = ProductDAO.getInstance();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "insert into productlist values (?,?,?,?)";
 		
 		try {
 			int k = 1;
-			for(int i=1; i<=1; i++) {
+			for(int i=1; i<=5; i++) {
 				Document doc = Jsoup.connect("http://www.theskinfood.com/shop/shopbrand.html?type=P&xcode=019&sort=&page="+i).get();
 				Elements images = doc.select("img.MS_prod_img_l");
 				Elements name = doc.select("span.goods_name");
@@ -50,16 +54,30 @@ public class ProductDAO {
 						vo.setCode(k);
 						vo.setImage(images.get(j).attr("src"));
 						vo.setName(name.get(j).text());
-						vo.setPrice(price.get(j).text().substring(2)); 
-						// 20,000 등으로 찍힘 int로 DB에 넣으려니까 오류남 / 중간에 , 잘라낼 방법 검색
+						vo.setPrice(price.get(j).text().substring(2).replace(",", "")); // DB에 number로 넣기 위해 통화기호랑 , 잘라내기
 						
 						list.add(vo);
-						pDao.productInsert(vo);
 						
+						conn = DBManager.getConnection();
+						
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setInt(1, vo.getCode());
+						pstmt.setString(2, vo.getName());
+						pstmt.setInt(3, Integer.parseInt(vo.getPrice()));
+						pstmt.setString(4, vo.getImage());
+						
+						pstmt.executeUpdate();
+					
 						k++;
 						
 					}catch(Exception e) {
 						e.printStackTrace();
+					}finally {
+						try {
+							DBManager.close(conn, pstmt);
+						}catch(Exception e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			}
@@ -68,33 +86,39 @@ public class ProductDAO {
 		}
 		return list;
 	}
-
-	public void productInsert(ProductVO vo) {
-		int result = -1;
+	
+	
+	// 데이터 1건 추출
+	public ProductVO selectOneProductByNum(int num) {
+		ProductVO vo= null;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into productlist values (?,?,?,?)";
-				
+		ResultSet rs = null;
+		String sql = "select * from productlist where num = ?";
+		
 		try {
+			
 			conn = DBManager.getConnection();
-			
-			System.out.println(conn);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getCode());
-			pstmt.setString(2, vo.getName());
-			pstmt.setInt(3, Integer.parseInt(vo.getPrice()));
-			pstmt.setString(4, vo.getImage());
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
 			
-			result = pstmt.executeUpdate();
-		}catch (Exception e) {
+			if(rs.next()) {
+				vo = new ProductVO();
+				vo.setCode(rs.getInt("id"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(""+rs.getInt("price"));
+				vo.setImage(rs.getString("image"));
+			}
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				DBManager.close(conn, pstmt);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			DBManager.close(conn, pstmt, rs);
 		}
+		
+		return vo;
 	}
+	
 }
