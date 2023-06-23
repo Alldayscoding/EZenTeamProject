@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="../footer/css/style.css">
+<link rel="stylesheet" href="footer/css/style.css">
 <title>스킨 푸드</title>
 </head>
 <footer>
