@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css"> <!-- 메인css -->
+<link rel="stylesheet" href="main/css/style.css"> <!-- 메인css -->
 <jsp:include page="/header/header.jsp"/>
 <title>스킨 푸드</title>
 </head>
