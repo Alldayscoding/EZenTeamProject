@@ -8,21 +8,27 @@
 <head>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+// html dom 이 다 로딩된 후 실행된다.
+$(document).ready(function(){
+    // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+    $(".menu>a").click(function(){
+        var submenu = $(this).next("ul");
 
+        // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+        if( submenu.is(":visible") ){
+            submenu.slideUp();
+        }else{
+            submenu.slideDown();
+        }
+    });
+});
 </script>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="FAQ/css/style.css">
 <title>FAQ</title>
 </head>
-
-
 <body>
-	<div>
-		<c:forEach var="subject" items="${subjects}">
-
-		</c:forEach>
-
-	</div>
+	<div></div>
 
 	<div id="wapper">
 
@@ -51,22 +57,34 @@
 			</nav>
 			<!--콘텐츠부분-->
 			<section>
-			<!--<p>FAQ</p>-->
+				<!--<p>FAQ</p>-->
 				<article>
-						<c:forEach var="faq" items="${FAQList}">
-					<div>
-						 	<ul id="subject" style="font-size:18px;font-style:bold">
-								<li><strong>${faq.subject}</strong></li>
-								<li>${faq.content}</li><br/>
+					<c:forEach var="faq" items="${FAQList}">
+						<div>
+							<ul>
+								<li class="menu">
+									<a><strong>${faq.subject}</strong></a>
+										<ul class="hide"> <br>
+											<li>${faq.content}</li> <br/>
+										</ul>						
+								</li><hr/>
 							</ul>
-					</div>
-						</c:forEach>
-				</article>
+						
+						
+						<!--  <ul id="subject" style="font-size: 18px; font-style: bold">
+								<li><strong>${faq.subject}</strong></li>
+								<li>${faq.content}</li>
+								<br>
+							</ul> -->
+							
+						</div>
+					</c:forEach>
+			</article>
 			</section>
-			<!---->
-			<aside>
+			
+			<!--<aside>
 				<p>aside</p>
-			</aside>
+			</aside>-->
 		</div>
 		<!--풋터-->
 		<footer>footer</footer>
