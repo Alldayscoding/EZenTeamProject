@@ -8,9 +8,10 @@
 <style>
 
 </style>
-<link rel="stylesheet" href="header/css/style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../header/css/style.css">
 <header>
-	<ul>
+	<ul class="top">
 		<a href="login.jsp">스킨푸드</a>
 		<a href="login.jsp">로그인</a>
 		<a href="join.jsp">회원가입</a>
