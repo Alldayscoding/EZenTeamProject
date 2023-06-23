@@ -6,6 +6,12 @@
 	margin: 0;
 }
 
+.top {
+	display:flex;
+	float: right;
+	background-color: rgb(231, 230, 230);
+}
+
 li {
 	list-style: none;
 }
