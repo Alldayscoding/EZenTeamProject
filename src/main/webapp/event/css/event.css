@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+* { margin: 0; padding: 0;}
+
+div {
+    align-items: center;
+}
+div.header{ 
+    width: 1140px; height: 38px;
+    background-color:
+}
+.header ul{
+    float: right;
+    list-style: none;
+}
+.header ul li{display: inline-block;}
+div.menu{
+    width: 1140px; height: 100px;
+    background-color: 
+}
+.menu ul{
+    float: right;
+    list-style: none;
+}
+.menu ul li{display: inline-block;}
+
+
+
+
+#event_layout{ height:1450px;  margin : 0 auto;}
+#event_layout .category{width: 1140px;height: 30px; }
+#event_layout .category li{display: inline-block; float: left; color: gray; font-size: 13px;}
+#event_layout .category li a{text-decoration: none; color: gray;}
+/*진행중 이벤트*/
+#event_layout .event_title{ width:1140px; height:150px; line-height: 150px;}
+#event_layout .event_title p{font-size: 30px; text-align: center;}
+
+/*이벤트 상자*/
+.event_content {width:1140px; height:1200px;  margin : 50px 0 0 0 auto; }
+.event_content #event { width:368px; height:384px; display:inline-block; }
+.event_content .item_img img{width: 360px;}
+.event_content .item_title{background-color: blue; height: 70px; line-height: 65px;}
+.event_content .item_title p{font-size: 17px; font-weight: bold;}
+.event_content .item_date{background-color: aqua; height: 50px; line-height: 50px;}
+.event_content .item_date p{font-size: 16px; color: gray;}
+
+.event_paging{width:1140px; height: 60px; line-height: 60px;}
+.event_paging a{font-size: 15px;}
+
+/*
+.event_paging a {
+    margin: 0 1px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    color: #605f60;
+}*/
+
+
+.footer{height:200px; background-color: pink;}
+
+
