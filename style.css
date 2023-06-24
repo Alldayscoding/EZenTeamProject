@@ -48,6 +48,9 @@ footer{
     position: fixed;
     bottom: 0;
 }
+a{
+text-decoration: none;    
+}
 li{
  list-style-type: none;  /*Bullet remove*/
 }
@@ -87,6 +90,10 @@ width:260px;
 
 }
 
+.faq-menu .hide{
+    display: none;
+}
+
 .category{
     display: block;
 }
@@ -113,3 +120,26 @@ width: 800px;
     text-align: right;
     font-size: 16px;
 }
+
+.list-detail{
+    float: left;
+
+}
+
+.list-detail ul a{  /*회원정보 */
+cursor: pointer;
+font-size: 18px;
+}
+
+.list-detail .faq-menu li ul li{
+    font-size: 15px;
+}
+
+
+.plusImg{
+
+    float:right;
+    margin-left: 390px;
+
+}
+
