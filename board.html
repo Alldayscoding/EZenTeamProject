@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        // html dom 이 다 로딩된 후 실행된다.
+        $(document).ready(function(){
+            // memu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+            $(".faq-menu>li>a").click(function(){
+                // 현재 클릭한 태그가 a 이기 때문에
+                // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
+                $(this).next("ul").toggleClass("hide");
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -30,7 +42,6 @@
     <li>고객센터</li>
     <li>></li>
     <li>FAQ</li>
-    
                 </ul>
             </div>
 
@@ -41,7 +52,6 @@
             <h1>고객센터</h1>
             <ul>
                 <li>FAQ</li>
-                <li>공지사항</li>
                 <li>매장안내</li>
                 <li>1:1문의하기</li>
             </ul>
@@ -60,9 +70,23 @@
         <h1>FAQ</h1>
         <input id="search" type="text" value="검색창" >
         <h3>찾으시는 질문이 없나요? <a href="#">1:1문의하기</a></h3>
-        <div>
+        <div style="display: flex;">
         <section>
-            [회원정보/멤버십] 포인트 유효기간은 어떻게 되나요?
+            
+            <div class="list-detail">
+                <ul class="faq-menu">
+                    <li>
+                        <a>[회원정보/멤버십] 포인트 유효기간은 어떻게 되나요?</a>
+                        <ul class="hide">
+                            <li>포인트 유효기간은 해당 포인트가 적립된 날로부터 1년 후 소멸됩니다. 이메일 수신 허용 고객에 한하여 소멸일 기준으로 약 한달 전 소멸 포인트 안내 이메일이 발송됩니다. </li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+
+            <div class="plusImg">
+                <a href="#"><img src="icon_plus.png"></a>
+            </div>
         </section>
         </div>
     </article>
