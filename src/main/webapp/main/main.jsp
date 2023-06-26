@@ -12,13 +12,13 @@
 <body>
  <div id="main_wrap">
         <!-- section01 -->
-        <section id="section01" class="section">
+        <section1 id="section01" class="section">
             <div class="banner">
                 <a href="main.jsp">
                     <img src="http://cdn3-aka.makeshop.co.kr/shopimages/skinfood/main_rolling1_245.jpg?1684894041">
                 </a>
             </div>
-        </section>
+        </section1>
 
         <!-- section02 -->
         <section id="section02" class="section">
