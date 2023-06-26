@@ -74,7 +74,6 @@ a {
 .submenu>li {
 	line-height: 20px;
 	display: flex;
-	background-color: pink;
 	text-align: left;
 }
 .submenu li a {
