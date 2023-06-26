@@ -11,7 +11,7 @@
 	<ul class="top">
 		<a href="login.jsp">로그인</a>
 		<a href="join.jsp">회원가입</a>
-		<a href="mypage.jsp">마이페이지</a>
+		<a href="main?command=pass_check_form">마이페이지</a>
 		<a href="membership.jsp">멤버십</a>
 		<a href="help.jsp">고객센터</a>
 		<select name="Lauguage">
