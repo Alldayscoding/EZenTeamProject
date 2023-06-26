@@ -1,6 +1,17 @@
+@charset "UTF-8";
+
 * {
 	margin: 0;
 	padding: 0;
+}
+body {
+	text-align: center;
+}
+#footer {
+	display: flex;
+	justify-content: center;
+}
+ul {
 	
 }
 ul li {
