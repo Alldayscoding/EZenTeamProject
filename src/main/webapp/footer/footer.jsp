@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="footer/css/style.css">
 <title>스킨 푸드</title>
 </head>
-<footer>
+<body>
 <ul>
 	<li><a href="#">공지사항</a></li>
 	<li><a href="#">이용약관</a></li>
@@ -31,6 +31,8 @@
 		<option>ENGLISH</option>
 	</select>
 </ul>
+</body>
+<footer>
 <section id="footer" class="section">
 <div class="left_text">
 	<h3>
