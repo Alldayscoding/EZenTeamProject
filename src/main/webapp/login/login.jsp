@@ -12,7 +12,7 @@
 
 	<div id="login_header">
         <div class="backbnt">
-        	<a href="main/main.jsp"> ◀◀뒤로가기 </a>
+        	<a href="main?command=main"> ◀◀뒤로가기 </a>
         </div>
         <div class="shopName">
         	<a href="login/login.jsp">SKINFOOD</a>
@@ -38,7 +38,7 @@
                     </div><br>
                     
                     <div class="loginBtn">
-                        <input type="submit" value="기존회원 로그인" onclick="return loginCheck()">
+                        <input type="submit" value="로그인" onclick="return loginCheck()">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="button" value="가입하기"
                         onclick="location.href='main?command=join'">
