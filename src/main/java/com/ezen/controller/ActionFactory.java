@@ -9,6 +9,8 @@ import com.ezen.action.ProductAction;
 import com.ezen.action.ProductListAction;
 import com.ezen.action.ReviewAction;
 import com.ezen.action.UserCheckAction;
+import com.ezen.action.UserPassCheckAction;
+import com.ezen.action.UserPassCheckFormAction;
 
 //Handler Mapping
 public class ActionFactory {
@@ -36,6 +38,12 @@ public class ActionFactory {
             action = new ProductListAction();
         }else if(command.equals("login")) {
         	action = new UserCheckAction();
+        }else if(command.equals("join")) {
+        	action = new InsertMemberAction();
+        }else if(command.equals("pass_check_form")) {
+        	action = new UserPassCheckFormAction();
+        }else if(command.equals("pass_check")) {
+        	action = new UserPassCheckAction();
         }
 		return action;
 	}
