@@ -1,54 +1,160 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
-<link rel="stylesheet" href="login/css/login.css">
-<script type="text/javascript" src="login/script/login.js"></script>
+<link rel="stylesheet" href="css/join.css">
+<title>회원 가입/수정</title>
 </head>
 <body>
+<%@ include file="../header/header.jsp" %>
 
-	<div id="login_header">
-        <div class="backbnt">
-        	<a href="main?command=main"> ◀◀뒤로가기 </a>
-        </div>
-        <div class="shopName">
-        	<a href="login/login.jsp">SKINFOOD</a>
-        </div>
-    </div>
+	    
+	<div align="center">	 
+	   
+	    <div id="join_layout">
+	    
+		    <div class="category">
+		        <ul>
+		            <li><a href="main?command=main">Home&nbsp;</a></li>
+		            <li>▶ 회원정보 입력</li>
+		        </ul>
+		    </div>
+		    
+		    
+		    <div class="join_title">
+			    <h3>회원정보 입력</h3>
+		    </div>
+		    
+		    
+		    <form action="main?command=join" method="post" name="frm">
+				<div id=member_info>
+					<table class="member_table">
+						<colgroup>
+							<col style="width: 155px">
+						</colgroup>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>이름
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input style="width: 280px" type="text" name="name" size="15">
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>아이디
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input style="width: 160px" type="text" name="id" size="10">
+									<a class="idcheck_bnt" onclick="return idchek()">중복확인</a>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>비밀번호
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input type="password" name="pass" size="15">
+									<span class="pw_info">
+										<br>* 영문 대소문자/숫자/특수문자를 혼용하여 2종류 10~16자 또는 3종류 8~16자
+									</span>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>비밀번호 확인
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input type="password" name="pass_check" size="15">
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>이메일
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input style="width: 280px" type="email" name="email" size="20">
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>휴대폰
+								</div>
+							</th>
+							<td>
+								<div class="info_cell">
+									<input style="width: 280px" type="text" name="phone" size="15">
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				<!-- addInfo -->
+				<div class="addInfo">
+					<table>
+						<tr>
+							<th>
+								<div class="head_cell">피부타입</div>
+							</th>
+							<th>
+								<div class="info_cell">
+									<label>
+										<input type="radio">건성
+									</label>
+								</div>
+							</th>
+							
+						</tr>
+					</table>
+				</div>
+				
+				
+				
+				<div class="join_bnt">
+					<input type="submit" value="가입하기" onclick="return joinCheck()">
+				</div>		
+				
+				
+				
+			</form>
 
-    <div id="login_section">
-        <div class="content">
-            <h3 class="title">로그인</h3>
-        	<div class="loginimg"><img src="login/img/스킨푸드.png"></div>
-            
-            <form name="frm" method ="post" action="main?command=login">
-                <div id="memberLogin">
-                	<div class="loginmessage">${message}</div>
-                    <div class="inputBox">
-                        <input type="text" name="id" placeholder="아이디" value="${id}" > <br>
-                        <input type="password" name="pass" placeholder="비밀번호" value="${pass}">
-                    </div>
-                    
-                    <div class="loginCheckBox">
-                        <input type="checkbox" name="save_id" id="save_id" value="on">
-                        <label for="save_id">아이디저장</label>
-                    </div><br>
-                    
-                    <div class="loginBtn">
-                        <input type="submit" value="로그인" onclick="return loginCheck()">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="가입하기"
-                        onclick="location.href='main?command=join'">
-                    </div>
-                </div>
-            </form>
-            
-        </div>
-    </div>
-	
+		    
+		</div>
+<%@ include file="../footer/footer.jsp" %>
+		
+	</div>
 
 </body>
 </html>
