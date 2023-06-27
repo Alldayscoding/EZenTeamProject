@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 @ToString
 public class ProductVO {
-	private int code;
-	private String image, name, price;
+	private int code, review;
+	private String image, name, price, tag;
 }
