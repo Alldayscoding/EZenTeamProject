@@ -23,28 +23,34 @@ public class ActionFactory {
 		Action action = null;
 
 		if(command.equals("main")) {
-			action = new MainAction();
-		} else if(command.equals("product")){
-			action = new ProductAction();
-		} else if(command.equals("event")){
-			action = new EventAction();
-		}else if(command.equals("review")){
-			action = new ReviewAction();
-		}else if(command.equals("faq")){
-			action = new FAQAction();
-		}else if(command.equals("about")) {
-			action = new AboutAction();
-		}else if(command.equals("product_list")) {
+         action = new MainAction();
+      } else if(command.equals("product")){
+         action = new ProductAction();
+      } else if(command.equals("event")){
+         action = new EventAction();
+      }else if(command.equals("review")){
+         action = new ReviewAction();
+      }else if(command.equals("faq")){
+         action = new FAQAction();
+      }else if(command.equals("about")) {
+         action = new AboutAction();
+      }else if(command.equals("product_list")) {
             action = new ProductListAction();
         }else if(command.equals("login")) {
-        	action = new UserCheckAction();
+           action = new UserCheckAction();
+        }else if(command.equals("join_form")) {
+           action = new MemberJoinAction();   
         }else if(command.equals("join")) {
-        	action = new InsertMemberAction();
+           action = new InsertMemberAction();
+        }else if(command.equals("id_check_form")) {
+           action = new IdCheckFormAction();   
+        }else if(command.equals("id_check")) {
+           action = new IdCheckAction();   
         }else if(command.equals("pass_check_form")) {
-        	action = new UserPassCheckFormAction();
+           action = new UserPassCheckFormAction();
         }else if(command.equals("pass_check")) {
-        	action = new UserPassCheckAction();
+           action = new UserPassCheckAction();
         }
-		return action;
+      return action;
 	}
 }
