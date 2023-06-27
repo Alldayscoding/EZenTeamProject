@@ -1,15 +1,12 @@
+/*header CSS*/
 @charset "UTF-8";
 
 
-* {
-	padding: 0;
-	margin: 0;
-}
-
 header {
-	padding: 10px;
+/*	padding: 10px;*/
 	background-color: rgb(231, 230, 230);
 }
+
 .top {
 	text-align: right;
 }
@@ -25,6 +22,11 @@ header {
 	float: left;
 	margin: 40px 0 0 300px;
 }
+img{
+	
+	width:100%;
+}
+
 #basket_img {
 	width: 30px;
 	height: 30px;
@@ -52,18 +54,21 @@ a {
 }
 
 .menu {
-	width: 1000px;
+	width: 68%;
 	overflow: hidden;
 	display: flex;
+	margin-top:43px;
 	
 }
 
 .menu>li {
-	width: 20%; /*20*5=100%*/
+	/*
+	width: 20%; 20*5=100%
 	text-align: center;
 	line-height: 40px;
-	/* background-color: #5778ff;*/
-	margin: 40px 0px 0px 170px;
+	/* background-color: #5778ff;
+	margin: 40px 0px 0px 170px;*/
+	margin:0 auto;
 }
 
 .menu a {
@@ -72,12 +77,12 @@ a {
 }
 
 .submenu>li {
-	line-height: 20px;
-	display: flex;
-	text-align: left;
+	line-height: 27px;
+/*	display: flex;*/
+	text-align: center;
 }
 .submenu li a {
-	font-size: 15px;
+	font-size: 12px;
 }
 
 .submenu {
@@ -93,4 +98,10 @@ a {
 .menu>li:hover .submenu {
 	height: 250px; /*서브메뉴 li한개의 높이 50*5*/
 	transition-duration: 1s;
+}
+
+.img_icon{
+
+    margin-right: 0px;
+    margin-left: 0px;
 }
