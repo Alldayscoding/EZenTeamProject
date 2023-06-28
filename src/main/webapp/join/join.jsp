@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="join/css/join.css">
 <title>회원 가입/수정</title>
+
+<script type="text/javascript" src="join/script/join.js"></script>
+
 </head>
 <body>
 <%@ include file="../header/header.jsp" %>
 
 	    
-	<div align="center">	 
+	<div id="top" align="center">	 
 	   
 	    <div id="join_layout">
 	    
@@ -30,7 +32,7 @@
 		    </div>
 		    
 		    
-		    <form action="main?command=join" method="post" name="frm">
+		    <form action="main?command=join" method="post" name="frm" accept-charset="UTF-8">
 				<div id=member_info>
 					<table class="member_table">
 						<colgroup>
@@ -40,7 +42,7 @@
 						<tr>
 							<th>
 								<div class="head_cell">
-									<span>*</span>이름
+									<span>*</span>이 름
 								</div>
 							</th>
 							<td>
@@ -59,7 +61,8 @@
 							<td>
 								<div class="info_cell">
 									<input style="width: 160px" type="text" name="id" size="10">
-									<a class="idcheck_bnt" onclick="return idchek()">중복확인</a>
+									<input type="hidden" name="reid" size=20>
+									<input class="idcheck_bnt" type="button" value="중복체크" onclick="idCheck()">
 								</div>
 							</td>
 						</tr>
@@ -101,11 +104,30 @@
 							</th>
 							<td>
 								<div class="info_cell">
-									<input style="width: 280px" type="email" name="email" size="20">
+									<input style="width: 350px" placeholder="예시 : abc@funweb.com (@포함기입)" type="email" name="email" size="20">
 								</div>
 							</td>
 						</tr>
-						
+<!--					
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>주 소
+								</div>
+							</th>
+							<td>
+								<div class="info_cell_address">
+									
+									<input style="width: 150px" type="text" class="postcode" placeholder="우편번호">
+									<input class="postcode_bnt" type="button" onclick="Postcode()" value="우편번호 찾기"><br>
+									
+									<label>도로명주소 (자동입력)</label>
+									<input style="width: 400px" type="text" name="address" class="roadAddress" placeholder="우편번호찾기를 이용해주세요" readonly><br>
+									<input type="hidden" id="jibunAddress" placeholder="지번주소">
+								</div>
+							</td>
+						</tr>
+	-->					
 						<tr>
 							<th>
 								<div class="head_cell">
@@ -114,14 +136,26 @@
 							</th>
 							<td>
 								<div class="info_cell">
-									<input style="width: 280px" type="text" name="phone" size="15">
+									<input style="width: 350px" placeholder="예시 : 010-1234-5678" type="text" name="phone" size="15">
 								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								<div class="head_cell">
+									<span>*</span>등 급
+								</div>
+							</th>
+							<td>
+									<input class="admin1"  type="radio" name="admin" value="A" checked="checked"> 일반회원
+									<input class="admin2" type="radio" name="admin" value="B"> 관리자
 							</td>
 						</tr>
 						
 					</table>
 				</div>
-				<!-- addInfo -->
+  				<!-- addInfo 
 				<div class="addInfo">
 					<table>
 						<tr>
@@ -139,7 +173,7 @@
 						</tr>
 					</table>
 				</div>
-				
+-->				
 				
 				
 				<div class="join_bnt">
