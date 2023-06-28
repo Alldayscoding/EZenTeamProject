@@ -40,7 +40,7 @@
 		    	</div>
 		    	
 		    
-		    	<form action="main" name="frm" method="get">
+		    	<form action="main?command=pass_check" name="frm" method="post">
          			 <input type="hidden" name="command" value="pass_check">
         			 <input type="hidden" name="id" value="${loginUser.id}">
        			 
