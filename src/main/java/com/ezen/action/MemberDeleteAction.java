@@ -19,6 +19,9 @@ public class MemberDeleteAction implements Action {
 
 		MemberDAO mDao = MemberDAO.getinstance();
 		mDao.deleteMember(id);
+
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
 		
 		String url = "main?command=login";
