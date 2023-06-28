@@ -32,7 +32,7 @@
 		    </div>
 		    
 		    
-		    <form action="main?command=join" method="post" name="frm" accept-charset="UTF-8">
+		    <form action="main?command=join" method="post" name="frm" >
 				<div id=member_info>
 					<table class="member_table">
 						<colgroup>
@@ -104,7 +104,7 @@
 							</th>
 							<td>
 								<div class="info_cell">
-									<input style="width: 350px" placeholder="예시 : abc@funweb.com (@포함기입)" type="email" name="email" size="20">
+									<input style="width: 350px" placeholder="예시 : abc@naver.com (@포함기입)" type="email" name="email" size="20">
 								</div>
 							</td>
 						</tr>
