@@ -23,19 +23,29 @@ div.category{
 .category ul li a{
 	text-decoration-line: none;
 }
-
-.productlist_top{
-	font-size: 20px;
-	padding: 10
+.search_icon{
+	width:30px; height:30px;
 }
 
-	
+.search_product{
+	border: none;
+	width: 500px; height: 50px;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.search_product:focus{
+	outline: none;
+	background-color: floralwhite;
+}
+
 div.container{
 	width: 1140px; height: 1840px;
     display: flex;
  	gap: 20px 10px;
   	flex-wrap: wrap;
   	justify-content: center;  	
+  	align-content: flex-start;
 }
 
 div.container a{
@@ -125,7 +135,7 @@ img.product_img{
    margin-left: 20px;
    font-size : 20px;
    font-weight: bold;
-   color: white;
+	color: white;
 }
 
 .amount_wrap{
@@ -158,6 +168,62 @@ img.product_img{
 	text-align: center;
 }
 
-table .underline{
+.sell_price_won{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.underline{
 	border-bottom: 1px solid BurlyWood;
+}
+
+
+.item_page{
+	height: 100px;	
+}
+
+.item_page div{
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.item_page div a{	
+	text-decoration-line: none;
+	font-size: 25px;
+	color: #777;
+}
+
+.item_page div a:hover{
+	border: 1px solid white;
+	background-color: BurlyWood;
+	color: white;
+}
+
+
+.buy_product{
+	width:800px; height:700px;
+	text-align: center;
+	background-color: Linen;
+	padding: 0 50px;
+}
+
+.buy_product tr td img{
+	width: 200px; height: 200px;
+	border: 2px solid white;
+}
+
+.buy_product tr td input{
+	border: 1px solid #777;
+	height: 20px;
+	text-align: center;
+}
+
+.buy_btn{
+	width: 200px; height: 50px;
+	background-color: BurlyWood;
+	border: 3px solid white;
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
 }
