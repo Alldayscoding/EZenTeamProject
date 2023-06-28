@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="header/css/style.css">
 
 <ul class="top">
-	
 	<c:choose>
 		<c:when test="${loginUser.name != null}">
 		<span>${loginUser.name}님 환영합니다.</span>
@@ -15,7 +14,7 @@
 		</c:when>
 		<c:otherwise>
 			<a href="main?command=userLogin">로그인</a>	
-				<a href="join.jsp">회원가입</a>
+			<a href="main?command=join_form">회원가입</a>
 		</c:otherwise>
 	</c:choose>
 	
@@ -28,14 +27,13 @@
 	</select>
 </ul>
 
-
 <ul class="logo">
 	<li id="logo"><a href="main?command=main"> <img
 			src="https://cdn3-aka.makeshop.co.kr/design/skinfood/skinfood/images/design/logo.png">
 	</a></li>
 </ul>
 <ul class="menu">
-	<li><a href="#"><strong>상품</strong></a>
+	<li><a href="main?command=product_list"><strong>상품</strong></a>
 		<ul class="submenu">
 			<li><a href="#">신상품</a></li>
 			<br>
@@ -55,9 +53,9 @@
 			<li><a href="#">종료된 이벤트</a></li>
 
 		</ul></li>
-	<li><a href="#"><strong>리뷰</strong></a>
+	<li><a href="main?command=review"><strong>리뷰</strong></a>
 		<ul class="submenu">
-			<li><a href="#">리뷰</a></li>
+			<li><a href="main?command=review">리뷰</a></li>
 			<br>
 		</ul></li>
 	<li><a href="main?command=faq"><strong>커뮤니티</strong></a>
@@ -76,8 +74,6 @@
 	<li><a href="#"><img
 			src="https://www.theskinfood.com/design/skinfood/skinfood/images/icon/icon-cart.svg"
 			width=30px; height=30px></a></li>
-
 </ul>
-
 
 
