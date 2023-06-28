@@ -44,6 +44,8 @@ public class ActionFactory {
 		action = new AboutAction();
 	}else if(command.equals("product_list")) {
 	         action = new ProductListAction();
+	}else if(command.equals("login_form")) {
+        	action = new UserCheckFormAction();
         }else if(command.equals("login")) {
         	action = new UserCheckAction();
         }else if(command.equals("join_form")) {
