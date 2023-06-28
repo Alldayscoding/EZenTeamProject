@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="mypage/css/memberDelete.css">
 <title>회원 탈퇴</title>
-<script type="text/javascript" src="mypage/script/mypage.js"></script>
+<script type="text/javascript" src="mypage/script/mypage1.js"></script>
 </head>
 <body>
 <%@ include file="../header/header.jsp" %>
@@ -31,16 +31,15 @@
 		    
 		    
 			<form class="delete_form" action="main?command=member_delete" method="post" name="frm">
-				<br><p><strong>회원 탈퇴를 원하십니까?</strong></p>
+				<br><p><strong>${loginUser.id}님 회원 탈퇴를 원하십니까?</strong></p>
 				<input type="hidden" name="command" value="pass_check">
         			 <input type="hidden" name="id" value="${loginUser.id}">
         			 <input type="hidden" name="pass" value="${loginUser.pass}">
 				
 				<div class="delete_form_div">
 					<br><strong>비밀번호를 입력하세요.</strong><br>
-					<input class="delete_pass" type="password" id="pass" name="pass_check" value="${pass}">
+					<input class="delete_pass" type="password" name="pass_check" >
 					<input class="OKbnt" type="submit" value="확인" onclick="return deleteCheck()">
-					<br>${message}
 				</div>
 			</form>
 	
