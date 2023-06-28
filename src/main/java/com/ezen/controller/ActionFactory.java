@@ -50,7 +50,12 @@ public class ActionFactory {
            action = new UserPassCheckFormAction();
         }else if(command.equals("pass_check")) {
            action = new UserPassCheckAction();
+        }else if(command.equals("member_update_form")) {
+        	action = new MemberUpdateFormAction();	
+        }else if(command.equals("member_update")) {
+        	action = new MemberUpdateAction();
         }
+		
       return action;
 	}
 }
