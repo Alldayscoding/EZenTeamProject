@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 상세</title>
-<link rel="stylesheet" href="product/css/style.css?ver=1">
+<link rel="stylesheet" href="product/css/style.css">
 <script type="text/javascript" src="product/script/product.js"></script>
 </head>
 <body>
@@ -58,9 +58,9 @@
 			</tr>			
 			<tr>
 				<th>합계</th>
-				<td>
-					<form name="frm_sum">
-						<input class="sell_price" type="text" name="sum" value="${product.price}원" readonly="readonly">
+				<td >
+					<form name="frm_sum" class="sell_price_won">
+						<input class="sell_price" type="text" name="sum" value="${product.price}" readonly="readonly">원
 					</form>
 				</td>
 			</tr>	
@@ -68,7 +68,7 @@
 				<td colspan="2">
 					<div class="detail_buy">
 						<div class="cart_add">장바구니 담기</div>
-						<div class="buy_now">바로 구매</div>
+						<div class="buy_now" onclick="location.href='main?command=product_buy&num=${product.code}'">바로 구매</div>
 			      	</div>
 		      	</td>
 			</tr>	
