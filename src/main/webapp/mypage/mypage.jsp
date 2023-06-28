@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="mypage/css/mypage.css">
 <title>회원 가입/수정</title>
 
-<script type="text/javascript" src="mypage/script/mypage.js"></script>
+<script type="text/javascript" src="mypage/script/mypage1.js"></script>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 			    <h3>회원정보 입력</h3>
 		    </div>
 		    
-		    <form action="main" method="post" name="frm" >
+		    <form action="main?command=member_update" method="post" name="frm" >
 		    <input type="hidden" name="command" value="member_update">
 		    <input type="hidden" name="id" value="${mVo.id}">
 				<div id=member_info>
@@ -149,7 +149,7 @@
 				
 				<div class="bnt">
 					<div class="update_bnt">
-						<input type="submit" value="수정하기" onclick="return joinCheck()">
+						<input type="submit" value="수정하기" onclick="return updateCheck()">
 					</div>	
 					<div class="reset_bnt">
 						<input type="reset" value="취소하기">
