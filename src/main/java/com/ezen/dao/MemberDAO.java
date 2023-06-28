@@ -202,7 +202,28 @@ public class MemberDAO {
 		return result;
 	}
 
-
-
+	public int deleteMember(String id) {
+		
+		int result = -1;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from member where id=?";
+	
+		try {			
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+}
 
 }
