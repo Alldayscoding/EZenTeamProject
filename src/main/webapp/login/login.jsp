@@ -15,7 +15,7 @@
         	<a href="main?command=main"> ◀◀뒤로가기 </a>
         </div>
         <div class="shopName">
-        	<a href="login/login.jsp">SKINFOOD</a>
+        	<a href="main?command=login">SKINFOOD</a>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
                         <input type="submit" value="로그인" onclick="return loginCheck()">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="button" value="가입하기"
-                        onclick="location.href='main?command=join'">
+                        onclick="location.href='main?command=join_form'">
                     </div>
                 </div>
             </form>
