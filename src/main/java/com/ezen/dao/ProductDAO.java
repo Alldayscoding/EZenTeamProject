@@ -36,7 +36,7 @@ public class ProductDAO {
 		
 		try {
 			int k = 1;
-			for(int i=1; i<=5; i++) {
+			for(int i=1; i<=9; i++) {
 				Document doc = Jsoup.connect("http://www.theskinfood.com/shop/shopbrand.html?type=P&xcode=019&sort=&page="+i).get();
 				Elements images = doc.select("img.MS_prod_img_l");
 				Elements name = doc.select("span.goods_name");
@@ -174,7 +174,7 @@ public class ProductDAO {
 		return vo;
 	}
 	
-	//데이터 개수 가져오기
+	// 데이터 개수 가져오기
 	public int countProduct() {
 		int count = 0;
 		Connection conn = null;
@@ -188,7 +188,7 @@ public class ProductDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				count = rs.getInt("count");
+				count = rs.getInt("count(*)");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -197,3 +197,113 @@ public class ProductDAO {
 		}
 		return count;
 	}
+	
+	// 페이징, 20개씩 추출
+	public List<ProductVO> getProductList(int pageNum, int amount){
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, A.*"
+				+ "from(select * from productlist order by id) A)"
+				+ "where rn > ? and rn <= ?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pageNum-1)*amount);
+			pstmt.setInt(2, pageNum*amount);	
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setCode(rs.getInt("id"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(""+rs.getInt("price"));
+				vo.setImage(rs.getString("image"));
+				vo.setTag(rs.getString("tag").replace(" ", " #"));
+				vo.setReview(rs.getInt("review"));
+				
+				list.add(vo);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				DBManager.close(conn, pstmt, rs);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	// 이름으로 검색, 페이징 처리 위해 20개씩 추출
+	public List<ProductVO> productSearch(String name, int pageNum, int amount){
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn, A.*"
+				+ "from(select * from productlist where name like ?) A)"
+				+ "where rn > ? and rn <= ?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setInt(2, (pageNum-1)*amount);
+			pstmt.setInt(3, pageNum*amount);	
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setCode(rs.getInt("id"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(""+rs.getInt("price"));
+				vo.setImage(rs.getString("image"));
+				vo.setTag(rs.getString("tag").replace(" ", " #"));
+				vo.setReview(rs.getInt("review"));
+		
+				list.add(vo);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				DBManager.close(conn, pstmt, rs);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	// 이름으로 검색하고 결과 건수 추출
+	public int productSearchCount(String name) {
+		int count = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select count(*) from productlist where name like ?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return count;
+	}
+	
+	
+}
