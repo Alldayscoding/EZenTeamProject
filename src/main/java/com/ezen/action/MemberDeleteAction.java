@@ -20,7 +20,8 @@ public class MemberDeleteAction implements Action {
 		MemberDAO mDao = MemberDAO.getinstance();
 		mDao.deleteMember(id);
 		
-		String url = "main?command=main";
+		
+		String url = "main?command=login";
 		response.sendRedirect(url);
 		
 		
