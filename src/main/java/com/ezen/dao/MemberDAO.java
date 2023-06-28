@@ -102,6 +102,106 @@ public class MemberDAO {
 		return vo;
 	}
 
+	public int insertMember(MemberVO vo) {
+		
+		int result= -1;
+		String sql = "insert into member(name,id,pass,email,phone,admin) values(?, ?, ?, ?, ?, ?)";
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getId());
+			pstmt.setString(3, vo.getPass());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(6, vo.getAdmin());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt !=  null) pstmt.close();
+				if(conn !=  null) conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public int confirmID(String id) {
+		int result =-1; //기본값
+		String sql = "select id from member where id=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;  // 중복체크 하려는 아이디가 저장된 DB에 있으면 1
+			}else {
+				result = -1; // 중복체크 하려는 아이디가 저장된 DB에 없으면 -1
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs !=  null) rs.close();
+				if(pstmt !=  null) pstmt.close();
+				if(conn !=  null) conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	public int updateMember(MemberVO vo) {
+		
+		int result = -1;
+		String sql = "update member set name=?, pass=?, email=?, phone=? where id=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setString(5, vo.getId());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		return result;
+	}
+
 
 
 
