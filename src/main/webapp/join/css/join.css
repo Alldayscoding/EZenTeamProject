@@ -2,8 +2,10 @@
 
 * { margin: 0 auto; padding: 0;}
 
-#join_layout{background-color: #e9e9e9; height:1600px;  margin : 0 auto; }
-#join_layout .category{height: 30px; margin-left: 50px; }
+#top{margin-top: 70px; border-top: 1px solid #e9e9e9}
+
+#join_layout{background-color: #e9e9e9; height:1200px;  margin : 0 auto; }
+#join_layout .category{width: 1140px;height: 50px; line-height: 50px;  height: 50px; margin-left: 50px; }
 #join_layout .category li{display: inline-block; float: left; color: rgb(161, 159, 159);
     font-size: 12px;}
 #join_layout .category li a{text-decoration: none; color: rgb(161, 159, 159); font-size: 12px;}
@@ -39,38 +41,64 @@
     width: 644px;
     padding: 13px;
     border: 1px solid #e9e9e9;}
-.member_table .info_cell input{height: 48px; font-size: 15px; text-indent: 15px;}
-.member_table .info_cell .idcheck_bnt{
-    display: inline-block;
-    min-width: 98px;
+/*
+.member_table .info_cell_address{height: 70px;}
+.member_table .info_cell_address input{height: 28px;}
+.member_table .info_cell_address .roadAddress{margin-top: 10px;}
+.member_table .info_cell_address label{font-size: 13px;}
+.member_table .info_cell_address .postcode_bnt {
+    width: 88px;
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
     border: 1px solid #000;
-    text-align: center;
-    transition: all 0.3s ease;
     color: #333;
-    text-decoration: none;
-    height: 48px;
-    line-height: 48px;
-    vertical-align: top;
     background: #fff;
-    font-size: 13px;}
-.member_table .info_cell a:hover{
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;}
+.member_table .info_cell_address .postcode_bnt:hover{
     color: white;
     background-color: black;
     border: 1px solid black;
     transition: all 0.3s;
 }
+*/
+.member_table .info_cell input{height: 48px; font-size: 15px; text-indent: 15px;}
+.member_table .info_cell .idcheck_bnt{
+    width: 88px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    border: 1px solid #000;
+    color: #333;
+    background: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;}
+.member_table .info_cell .idcheck_bnt:hover{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    transition: all 0.3s;
+}
+
+.admin2{margin-left: 40px;}
+
 .member_table .info_cell .pw_info{font-size: 11px;}
 
 .join_bnt input{
+    margin-top: 100px;
     width: 234px;
     height: 64px;
     line-height: 64px;
     font-size: 22px;
     font-weight: bold;
     color: white;
-    background-color: rgb(241, 159, 7);
+    background-color: black;
 }
 
 .addInfo{height: 300px; background-color: rgb(204, 145, 110);}
 
-.join_bnt input:hover{cursor: pointer;}
+.join_bnt input:hover{cursor: pointer; background-color: #e9e9e9; color: #000;
+    transition: all 0.3s;}
